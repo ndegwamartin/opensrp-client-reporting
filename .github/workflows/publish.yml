@@ -3,7 +3,7 @@ name: Build and publish signed release artefact
 on:
   push:
     tags:
-      - v*-RELEASE
+      - '*'
 
 jobs:
   build_publish:
