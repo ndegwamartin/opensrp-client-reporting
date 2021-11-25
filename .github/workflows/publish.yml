@@ -21,8 +21,11 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build Debug APK
         run: ./gradlew assembleDebug
-      - name: Releasing using Hub
-        uses: kyze8439690/action-release-releaseapk@master
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          APP_FOLDER: sample/build/outputs/apk/debug
+          repo_token: ${{ secrets.GIT_TOKEN }}
+          file: sample/build/outputs/apk/debug/sample-debug.apk
+          asset_name: $tag
+          tag: ${{ github.ref }}
+          overwrite: true
