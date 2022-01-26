@@ -24,7 +24,7 @@ jobs:
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         env:
-          repo_token: ${{ secrets.GIT_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: sample/build/outputs/apk/debug/sample-debug.apk
           asset_name: sample-debug-release
           tag: ${{ github.ref }}
