@@ -26,6 +26,6 @@ jobs:
         env:
           repo_token: ${{ secrets.GIT_TOKEN }}
           file: sample/build/outputs/apk/debug/sample-debug.apk
-          asset_name: $tag
+          asset_name: sample-debug-release
           tag: ${{ github.ref }}
           overwrite: true
