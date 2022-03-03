@@ -37,19 +37,19 @@ jobs:
         run: chmod +x gradlew  
 
       - name: Generate AAB (Android App Bundle) file
-        run: ./gradlew :quest:bundleDebug -x :quest:testDebugUnitTest --stacktrace
+        run: ./gradlew :sample:bundleDebug -x :sample:testDebugUnitTest --stacktrace
         
       - name: Upload AAB file to tag assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: sample/build/build/outputs/bundle/debug/debug-release.aab
-          asset_name: "quest-$tag.aab"
+          asset_name: "sample-$tag.aab"
           tag: ${{ github.ref }}
           overwrite: true      
       
       - name: Generate APK (Android App PacKage) file
-        run: ./gradlew :quest:assembleDebug -x :quest:testDebugUnitTest --stacktrace
+        run: ./gradlew :sample:assembleDebug -x :sample:testDebugUnitTest --stacktrace
         
       - name: Upload APK file to tag assets
         uses: svenstaro/upload-release-action@v2
