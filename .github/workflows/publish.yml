@@ -43,7 +43,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: sample/build/build/outputs/bundle/debug/debug-release.aab
+          file: sample/build/outputs/bundle/debug/debug-release.aab
           asset_name: "sample-$tag.aab"
           tag: ${{ github.ref }}
           overwrite: true      
